@@ -1,42 +1,44 @@
-import random
-from multiprocessing.connection import answer_challenge
-
-
-def random_number(min_num, max_num):
-    return random.randint(a = min_num, b = max_num)
-
-def input_number(it):
-    num = int(input(f"{it}. Введите число от 1 до 100!: "))
-    return num
-
-
-
-def play_game():
-    secret_num = random_number(0, 100)
-    it = 0
-    while True:
-        it+=1
-        people_num = input_number(it)
-
-        if secret_num < people_num:
-            print("Мен каткан сан кичине! ")
-        elif secret_num > people_num:
-            print("Мен каткан сан чон! ")
-        elif secret_num == people_num:
-            answer =  input(f"Мен каткан санды {it} аракет менен таптыныз! "
-                  "\nКайра ойносузбу (о, ж)>>>>")
-            if answer == "о":
-                print("\n\n0=0=0 Новая Игра 0=0=0\n")
-                play_game()
-            elif answer == "ж":
-                print("\n\nСпасибо за игру))\n")
-                break
-            else:
-                print("Туура эмес команда жаздыныз. Кайра башынан баштаныз!!!")
-
-def main():
-    play_game()
-
-main()
-
+print("Часть 1: List")
+films = ["1+1", "Зеленая книга", "Гладиатор," "Тайна Коко", "Районы", "Патруль"]
+print(films)
+films.remove("Зеленая книга")
+print(films)
+print("\n ")
+print("Часть 2: Tuple")
+# Кортеж с днями недели
+days = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+# Первый и последний день
+print(days[0])     # Первый
+print(days[-1])    # Последний
+# Индекс Wednesday
+print(days.index("Wednesday"))
+print("\n ")
+print("Часть 3: Dict")
+book = {
+        "Title": "Маленький принц",
+        "Author":"Антуан де Сент-Экзюпери",
+        "Year": "1943",
+        "Genre": "сказка-притча"
+}
+print(book)
+Title = book.get("Title", "guest")
+print(Title)
+Author = book.get("Author", "guest")
+print(Author)
+Year = book.get("Year", "guest")
+print(Year)
+Genre = book.get("Genre", "guest")
+print(Genre)
+print("\n ")
+print("Часть 4: Set")
+my_set = {1, 2, 3, 4, 5}
+print(my_set)
+my_set.add(6)
+print(my_set)
+my_set.discard(3)
+print(my_set)
+my_set.add(7)
+print(my_set)
+my_set.add(8)
+print(my_set)
 
